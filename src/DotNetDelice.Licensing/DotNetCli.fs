@@ -20,7 +20,7 @@ type RunResult =
     member this.IsSuccess = this.ExitCode = 0
 
 let dotnetRun args =
-    let exe = DotNetExe.FullPathOrDefault()
+    let exe = "/usr/bin/dotnet" //DotNetExe.FullPathOrDefault()
     async {
         let psi = ProcessStartInfo(exe, args |> String.concat " ")
         psi.WorkingDirectory <- System.Environment.CurrentDirectory
